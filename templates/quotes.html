@@ -1,0 +1,19 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+<div>
+    <h1><b>Quote of the day</b></h1>
+    <br>
+    <blockquote>
+        <h3>{{favourite.quote}} </h3>
+        <h4> - {{favourite.author}} </h4>
+    </blockquote>
+    <br>
+</div>
+<p>Here are some memes because the quotes were probably boring :P</p>
+
+<button onclick="document.location='https://i.redd.it/i0imk0ay05k21.jpg'">meme :)</button>
+<button onclick="document.location='https://i.redd.it/prz7lg2pv6231.jpg'">another meme</button>
+
+{% endblock %}
