@@ -1,0 +1,29 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+<h2>Favourite Memes :P</h2>
+<p>Here are some memes because the quotes were probably boring :P</p>
+
+    <div>
+        <div class="text-center">
+            <img src="{{url_for('static', filename='images/1.jpg')}}" class="w3-round" alt="..." style="width:450px">
+          </div> 
+          <br>
+          <hr>
+          <br>
+          <div class="text-center">
+            <img src="{{url_for('static', filename='images/2.jpg')}}" class="w3-round" alt="..." style="width:400px">
+          </div> 
+          <br> 
+          <hr>
+          <br>
+          <div class="text-center">
+            <img src="{{url_for('static', filename='images/3.jpg')}}" class="w3-round" alt="..." style="width:650px">
+          </div>  
+           
+    </div>
+
+{% endblock %}
+

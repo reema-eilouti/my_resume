@@ -75,3 +75,27 @@ def quotes():
 	the_quote = random.choice(the_quotes_list)
 
 	return render_template("quotes.html", favourite = the_quote, go_home = url_for("home"), me = me)
+
+@myapp.route('/add_quote', methods=["GET", "POST"])
+def add_quote():
+	if request.method == 'GET':
+		return render_template("add_quote.html")
+	else:
+		newquote = request.form['newquote']
+		newauthor = request.form['newauthor']
+		me['favourite_quotes'].append({'quote':newquote,'author':newauthor})
+		return redirect(url_for("quotes"))
+
+@myapp.route('/del_quote', methods=["GET", "POST"])
+def del_quote():
+	if request.method == 'GET':
+		return render_template("del_quote.html", me = me)
+	else:
+		quotenumber = int(request.form['quotenumber'])
+		me['favourite_quotes'].pop(quotenumber)
+		return redirect(url_for("quotes"))
+
+@myapp.route('/memes')
+def memes():
+		return render_template("memes.html", me = me)
+	
