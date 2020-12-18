@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request, redirect
 import random 
 
 myapp = Flask(__name__)
@@ -43,7 +43,23 @@ def home():
 
 @myapp.route('/me')
 def about_me():
-    return render_template("me.html", me = me, go_home = url_for("home"), pic = url_for('static', filename='images/yellow.jpg'))
+	return render_template("me.html", me = me, go_home = url_for("home"), pic = url_for('static', filename='images/yellow.jpg'))
+
+
+@myapp.route('/editme', methods=["GET", "POST"])
+def edit_me():
+	if request.method == 'GET':
+		return render_template("editme.html")
+	else:
+		age = int(request.form['age'])   
+		email = request.form['email']
+		# change values in dictionary
+		me['age']= age
+		me['email']= email
+		return redirect(url_for("about_me"))
+
+
+
 
 @myapp.route('/skills')
 def skills():
